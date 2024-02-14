@@ -2,6 +2,7 @@ import { env, window, workspace } from 'vscode';
 import { LoggerService } from '../logger.service';
 import getJsonPath from '../json.path';
 import { Command } from '../decorators/command.decorator';
+import * as vscode from 'vscode';
 
 enum FileType {
   JSON = 'json',
@@ -60,10 +61,21 @@ export class Copy {
       const path = pathOutput.replace('%PATH%', rawPath);
 
       env.clipboard
-        .writeText(path)
+        .writeText(convertFormat(path))
         .then(() => this.loggerService.log('Path copied'));
     } else {
       this.loggerService.error('Fail to copy path');
     }
   }
+}
+
+function convertFormat(input: string): string {
+  const lastBracketsIndex = input.lastIndexOf('[]');
+  if (lastBracketsIndex !== -1) {
+    const prefix = input.substring(0, lastBracketsIndex); //.replace(/\[\]/g, '{}');
+    const remaining = input.substring(lastBracketsIndex + 2);
+    const suffix = remaining.substring(1);
+    return prefix + '[]{@:' + suffix + '}';
+  }
+  return input;
 }

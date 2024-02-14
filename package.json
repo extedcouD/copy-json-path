@@ -1,8 +1,8 @@
 {
-  "name": "copy-json-path",
-  "publisher": "Malo",
-  "displayName": "Copy Json Path",
-  "description": "This extension allows you to copy and paste a jsonpath",
+  "name": "extract-path",
+  "publisher": "extedcoud",
+  "displayName": "Copy and extract path",
+  "description": "This extension allows you to extract formatted path of json property",
   "icon": "assets/logo.png",
   "repository": {
     "url": "https://github.com/MaloPolese/copy-json-path/tree/main"
@@ -14,9 +14,6 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onCommand:copy-json-path.copy"
-  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -27,7 +24,7 @@
       }
     ],
     "configuration": {
-      "title": "Copy Json Path",
+      "title": "Copy and extract path",
       "properties": {
         "json.copyJsonPath.includeFileName": {
           "type": "boolean",

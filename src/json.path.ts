@@ -57,7 +57,7 @@ function getPropertyPath(
   options?: Options,
 ): string {
   if (Number.isInteger(propertyName)) {
-    return `[${propertyName}]`;
+    return `[]`; //${propertyName}
   }
   const requiresQuotes = propertyRequiresQuotes(propertyName);
   if (requiresQuotes || options?.useBracketNotation) {
@@ -66,7 +66,8 @@ function getPropertyPath(
   if (isFirst) {
     return propertyName.toString();
   }
-  return '.' + propertyName;
+  let s = '.' + propertyName;
+  return s;
 }
 
 export function getPropertyPathWithQuotes(
