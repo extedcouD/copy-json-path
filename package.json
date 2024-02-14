@@ -5,15 +5,16 @@
   "description": "This extension allows you to extract formatted path of json property",
   "icon": "assets/logo.png",
   "repository": {
-    "url": "https://github.com/MaloPolese/copy-json-path/tree/main"
+    "url": "https://github.com/extedcouD/copy-json-path"
   },
-  "version": "1.2.0",
+  "version": "1.0.2",
   "engines": {
     "vscode": "^1.58.0"
   },
   "categories": [
     "Other"
   ],
+  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -91,6 +92,7 @@
     "@types/vscode": "^1.58.0",
     "@typescript-eslint/eslint-plugin": "^4.26.0",
     "@typescript-eslint/parser": "^4.26.0",
+    "esbuild": "^0.20.0",
     "eslint": "^7.27.0",
     "glob": "^7.1.7",
     "mocha": "^10.1.0",
